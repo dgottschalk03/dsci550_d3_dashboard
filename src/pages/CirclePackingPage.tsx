@@ -7,8 +7,14 @@ function CirclePackingPage() {
         if (chartDiv) {
           chartDiv.innerHTML = ""; // Clears old SVG/content
         }
-      
+        
+        const oldScript = document.getElementById("circlepacking-script");
+        if (oldScript) {
+            oldScript.remove();
+        }
         // ✅ Then create the new script
+
+        (window as any).BASE_URL = import.meta.env.BASE_URL;
         const script = document.createElement("script");
         script.src = `${import.meta.env.BASE_URL}scripts/circlepacking.js`;
         script.async = true;

@@ -7,7 +7,8 @@ function ScatterplotPage() {
     if (scatterDiv) {
       scatterDiv.innerHTML = "";
     }
-
+    (window as any).BASE_URL = import.meta.env.BASE_URL;
+    
     const script = document.createElement("script");
     script.src = `${import.meta.env.BASE_URL}scripts/scatterplot.js`;  // match what you save it as
     script.async = true;

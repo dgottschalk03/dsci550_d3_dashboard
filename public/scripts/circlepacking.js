@@ -30,7 +30,8 @@ const tooltip = d3.select("body")
   .style("box-shadow", "0px 2px 5px rgba(0,0,0,0.2)")
   .style("border-radius", "4px");
 
-d3.json(`${import.meta.env.BASE_URL}data/treemap.json`).then(data => {
+const baseUrl = window.BASE_URL || '/';
+d3.json(`${baseUrl}data/treemap.json`).then(data => {
   const root = pack(data);
 
   const svg = d3.select("#chart")

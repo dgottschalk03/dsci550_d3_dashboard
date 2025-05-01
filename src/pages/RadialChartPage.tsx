@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 function RadialChartPage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
+      (window as any).BASE_URL = import.meta.env.BASE_URL;
+
       const script = document.createElement("script");
       script.src = `${import.meta.env.BASE_URL}scripts/radial_chart.js`;
       script.async = true;
