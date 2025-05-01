@@ -10,7 +10,7 @@ function CirclePackingPage() {
       
         // ✅ Then create the new script
         const script = document.createElement("script");
-        script.src = "/scripts/circlepacking.js";
+        script.src = `${import.meta.env.BASE_URL}scripts/circlepacking.js`;
         script.async = true;
         script.id = "circlepacking-script"; // Optional: ID for extra clarity
         document.body.appendChild(script);

@@ -18,7 +18,7 @@
       .attr("class", "tooltip")
       .style("opacity", 0);
   
-    d3.json("/data/scatter_daylight_apparition_cleaned.json").then(function(data) {
+    d3.json(`${import.meta.env.BASE_URL}data/scatter_daylight_apparition_cleaned.json`).then(function(data) {
       const x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.Daylight_Duration_Hours))
         .range([margin.left, width - margin.right]);

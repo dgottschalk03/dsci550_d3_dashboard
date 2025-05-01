@@ -9,7 +9,7 @@ function ScatterplotPage() {
     }
 
     const script = document.createElement("script");
-    script.src = "/scripts/scatterplot.js";  // match what you save it as
+    script.src = `${import.meta.env.BASE_URL}scripts/scatterplot.js`;  // match what you save it as
     script.async = true;
     script.id = "scatterplot-script";
     document.body.appendChild(script);

@@ -38,7 +38,7 @@ export default function BubbleMap() {
 
     Promise.all([
       d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
-      d3.json("/data/processed/bubble_map_data.json")
+      d3.json(`${import.meta.env.BASE_URL}data/processed/bubble_map_data.json`)
     ])
       .then(([us, data]) => {
         svg.append("g")

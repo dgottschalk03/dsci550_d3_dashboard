@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div
       style={{
-        backgroundImage: "url('/background.jpg')",
+        backgroundImage: `url(${import.meta.env.BASE_URL}background.jpg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

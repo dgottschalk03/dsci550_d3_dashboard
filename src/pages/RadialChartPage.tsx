@@ -4,15 +4,26 @@ function RadialChartPage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       const script = document.createElement("script");
-      script.src = "/scripts/radial_chart.js";
+      script.src = `${import.meta.env.BASE_URL}scripts/radial_chart.js`;
       script.async = true;
+      script.id = "radial-chart-script";
       document.body.appendChild(script);
     }, 200);
 
     return () => {
       clearTimeout(timeout);
-      const scripts = document.querySelectorAll("script[src='/scripts/radial_chart.js']");
-      scripts.forEach(script => script.remove());
+
+      const oldScript = document.getElementById("radial-chart-script");
+      if (oldScript) {
+        document.body.removeChild(oldScript);
+      }
+
+      const svgElement = document.querySelector("svg");
+      if (svgElement) {
+        svgElement.innerHTML = "";
+      }
+      // const scripts = document.querySelectorAll("script[src=`${import.meta.env.BASE_URL}scripts/radial_chart.js`]");
+      // scripts.forEach(script => script.remove());
     };
   }, []);
 

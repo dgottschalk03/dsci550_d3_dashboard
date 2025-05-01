@@ -1,3 +1,4 @@
+(function() {
 const width = 932;
 const height = 932;
 const baseColor = d3.scaleOrdinal(d3.schemeCategory10);
@@ -29,7 +30,7 @@ const tooltip = d3.select("body")
   .style("box-shadow", "0px 2px 5px rgba(0,0,0,0.2)")
   .style("border-radius", "4px");
 
-d3.json("/data/treemap.json").then(data => {
+d3.json(`${import.meta.env.BASE_URL}data/treemap.json`).then(data => {
   const root = pack(data);
 
   const svg = d3.select("#chart")
@@ -91,4 +92,5 @@ d3.json("/data/treemap.json").then(data => {
     .style("font-size", d => d.children ? "14px" : "8px")
     .attr("dy", "0.3em")
     .text(d => d.data.name);
-});
+})
+})();
