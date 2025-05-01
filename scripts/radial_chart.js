@@ -26,7 +26,8 @@ const tooltip = d3.select("body").append("div")
 
 let activeReligion = null;
 
-d3.json(`${import.meta.env.BASE_URL}data/radial_data.json`).then(data => {
+const baseUrl = window.BASE_URL || '/';
+d3.json(`${baseUrl}data/radial_data.json`).then(data => {
   const apparitionTypes = [...new Set(data.flatMap(d => Object.keys(d.apparitions)))];
 
   const mutedRainbow = [
